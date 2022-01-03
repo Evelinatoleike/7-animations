@@ -1,0 +1,113 @@
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+}
+
+body {
+    height: 100vh;
+    padding: 80px;
+}
+body > * {
+    margin: 80px;
+}
+
+.bulb {
+    display: inline-block;
+    width: 220px;
+    height: 400px;
+    background-image: url(../img/bulb.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.bulb > .light {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 95%;
+    aspect-ratio: 1/1;
+    background-color: rgb(255, 45, 161);
+    border-radius: 50%;
+    box-shadow: 0 0 80px rgb(255, 165, 233);
+
+    animation: christmas 3s linear 0s infinite;
+}
+
+@keyframes christmas {
+    0% {
+        background-color: rgb(245, 72, 202);
+        box-shadow: 0 0 80px 20px rgb(245, 72, 202);
+    }
+    33% {
+        background-color: rgb(255, 161, 227);;
+        box-shadow: 0 0 80px 20px rgb(255, 161, 227);
+    }
+    34% {
+        background-color: rgb(88, 193, 241);
+        box-shadow: 0 0 80px 20px rgb(88, 193, 241);
+    }
+    66% {
+        background-color: rgb(190, 229, 245);
+        box-shadow: 0 0 80px 20px rgb(190, 229, 245);
+    }
+    67% {
+        background-color: rgb(247, 207, 237);
+        box-shadow: 0 0 80px 20px rgb(247, 207, 237);
+    }
+    100% {
+        background-color: rgb(255, 161, 227);
+        box-shadow: 0 0 80px 20px rgb(255, 161, 227);
+    }
+}
+
+.battery {
+    display: inline-block;
+    width: 400px;
+    height: 180px;
+    border: 20px solid #333;
+    border-radius: 10px;
+    position: relative;
+}
+.battery::after {
+    content: '';
+    width: 20px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(200%, -50%);
+    background-color: #333;
+}
+.battery::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 0%;
+    animation: charging 2s linear 0s infinite;
+    background-color: rgb(7, 138, 7);
+}
+
+@keyframes charging {
+    0% {
+        width: 0%;
+        background-color: rgb(247, 207, 237);
+    }
+    40% {
+        background-color: rgb(255, 161, 227);
+    }
+    70% {
+        background-color: rgb(245, 72, 202);
+    }
+
+    100% {
+        width: 100%;
+        background-color: rgb(255, 161, 227);
+    }
+}
